@@ -4,7 +4,7 @@ This repository contains the source code for my personal portfolio website.
 It highlights my journey, projects, skills, and achievements as an Electronics & Communication Engineering (ECE) student specializing in Embedded Systems and IoT.
 
 #📌 Live Portfolio Link
-🔗 Portfolio: Add your link here after hosting
+🔗 Portfolio:  https://padarthisuma7-x.github.io/suma/
 
 ## 👤 About Me
 I’m Padarthi Sumadhanu, a 3rd-year ECE student passionate about:
