@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Padarthi Sumadhanu | Embedded Systems & IoT Engineer</title>
+    <meta name="description" content="Portfolio of Padarthi Sumadhanu - ECE Student, IoT Innovator, and Co-Founder of StreetR.">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        primary: '#EC4899', // Pink 500
+                        secondary: '#8B5CF6', // Violet 500
+                        dark: '#111827', // Gray 900
+                        light: '#FDF2F8', // Pink 50
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
+                        'blob': 'blob 7s infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-15px)' },
+                        },
+                        fadeInUp: {
+                            '0%': { opacity: '0', transform: 'translateY(30px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        },
+                        blob: {
+                            "0%": { transform: "translate(0px, 0px) scale(1)" },
+                            "33%": { transform: "translate(30px, -50px) scale(1.1)" },
+                            "66%": { transform: "translate(-20px, 20px) scale(0.9)" },
+                            "100%": { transform: "translate(0px, 0px) scale(1)" }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Custom CSS -->
+    <style>
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 14px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f8fafc;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(to bottom, #EC4899, #8B5CF6);
+            border-radius: 7px;
+            border: 3px solid #f8fafc;
+        }
+        
+        /* Gradient Text Utility */
+        .text-gradient {
+            background: linear-gradient(to right, #EC4899, #8B5CF6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Glassmorphism Effect */
+        .glass {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+        }
+
+        /* Tech Tag Base Style */
+        .tech-tag {
+            transition: all 0.3s ease;
+        }
+        .tech-tag:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 15px -3px rgba(236, 72, 153, 0.2);
+        }
+
+        /* Typing Cursor */
+        .cursor {
+            display: inline-block;
+            width: 4px;
+            height: 1em;
+            background-color: #8B5CF6;
+            vertical-align: middle;
+            animation: blink 1s infinite;
+        }
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+        
+        /* Reveal on Scroll Class */
+        .reveal {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 1s ease-out;
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="bg-light font-sans text-gray-800 antialiased selection:bg-pink-200 selection:text-pink-900">
+
+    <!-- Navbar -->
+    <header id="navbar" class="fixed w-full top-0 z-50 transition-all duration-300 py-6 bg-transparent">
+        <div class="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+            <div class="flex justify-between items-center">
+                <!-- Logo -->
+                <a href="#home" class="text-4xl font-extrabold tracking-tight group hover:scale-105 transition duration-300">
+                    <span class="text-gray-900 group-hover:text-primary transition duration-300">Suma</span><span class="text-primary group-hover:text-secondary transition duration-300">dhanu.</span>
+                </a>
+
+                <!-- Desktop Menu -->
+                <nav class="hidden md:flex space-x-12 items-center">
+                    <a href="#home" class="nav-link text-lg font-semibold text-gray-600 hover:text-primary transition duration-300 relative group">
+                        Home
+                        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-primary to-secondary transition-all duration-300 group-hover:w-full"></span>
+                    </a>
+                    <a href="#about" class="nav-link text-lg font-semibold text-gray-600 hover:text-primary transition duration-300 relative group">
+                        About
+                        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-primary to-secondary transition-all duration-300 group-hover:w-full"></span>
+                    </a>
+                    <a href="#projects" class="nav-link text-lg font-semibold text-gray-600 hover:text-primary transition duration-300 relative group">
+                        Projects
+                        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-primary to-secondary transition-all duration-300 group-hover:w-full"></span>
+                    </a>
+                    <a href="#skills" class="nav-link text-lg font-semibold text-gray-600 hover:text-primary transition duration-300 relative group">
+                        Skills
+                        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-primary to-secondary transition-all duration-300 group-hover:w-full"></span>
+                    </a>
+                    <a href="#contact" class="px-8 py-3 rounded-full bg-gradient-to-r from-primary to-secondary text-white font-bold text-lg shadow-lg hover:shadow-pink-500/40 transition-all duration-300 transform hover:-translate-y-1 hover:scale-105">
+                        Contact Me
+                    </a>
+                </nav>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" class="md:hidden text-gray-700 hover:text-primary focus:outline-none transition transform hover:scale-110">
+                    <i class="fas fa-bars text-3xl"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Panel -->
+        <div id="mobile-menu" class="hidden absolute top-full left-0 w-full bg-white/95 backdrop-blur-md shadow-2xl border-t border-gray-100 py-6 px-6 flex flex-col space-y-4 md:hidden">
+            <a href="#home" class="text-gray-800 hover:text-primary font-bold text-2xl p-3 rounded-xl hover:bg-pink-50 transition">Home</a>
+            <a href="#about" class="text-gray-800 hover:text-primary font-bold text-2xl p-3 rounded-xl hover:bg-pink-50 transition">About</a>
+            <a href="#projects" class="text-gray-800 hover:text-primary font-bold text-2xl p-3 rounded-xl hover:bg-pink-50 transition">Projects</a>
+            <a href="#skills" class="text-gray-800 hover:text-primary font-bold text-2xl p-3 rounded-xl hover:bg-pink-50 transition">Skills</a>
+            <a href="#contact" class="text-white bg-primary text-center font-bold text-2xl p-3 rounded-xl shadow-lg transition">Contact Me</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen flex items-center pt-32 pb-20 relative overflow-hidden bg-light">
+        <!-- Background Blobs (Animated) -->
+        <div class="absolute top-0 right-0 -z-10 w-[600px] h-[600px] bg-pink-200 rounded-full mix-blend-multiply filter blur-[80px] opacity-40 animate-blob"></div>
+        <div class="absolute bottom-0 left-0 -z-10 w-[600px] h-[600px] bg-purple-200 rounded-full mix-blend-multiply filter blur-[80px] opacity-40 animate-blob animation-delay-2000"></div>
+
+        <div class="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 w-full">
+            <div class="flex flex-col items-center justify-center text-center">
+                
+                <!-- Text Content (Centered & Full Width) -->
+                <div class="w-full max-w-5xl mx-auto space-y-10 animate-fade-in-up">
+                    <div class="inline-flex items-center gap-2 px-6 py-3 bg-white border border-pink-100 rounded-full shadow-md hover:shadow-lg transition duration-300">
+                        <span class="flex h-3 w-3 relative">
+                            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+                            <span class="relative inline-flex rounded-full h-3 w-3 bg-primary"></span>
+                        </span>
+                        <span class="text-primary font-bold text-sm tracking-wide uppercase">Open to Opportunities</span>
+                    </div>
+                    
+                    <div class="space-y-4">
+                        <h1 class="text-6xl sm:text-7xl lg:text-9xl font-black text-gray-900 leading-[1.1] tracking-tight">
+                            Hi, I'm <br>
+                            <span class="text-gradient">Padarthi Sumadhanu</span>
+                        </h1>
+                        
+                        <div class="text-2xl sm:text-3xl lg:text-5xl text-gray-600 font-semibold h-14 flex items-center justify-center">
+                            I am a&nbsp;<span id="typewriter" class="text-secondary"></span><span class="cursor"></span>
+                        </div>
+                    </div>
+                    
+                    <p class="text-gray-600 text-xl lg:text-2xl max-w-3xl mx-auto leading-relaxed font-light">
+                        Passionate about secure wireless communication, low-power hardware design, and edge computing. <strong>Award-winning</strong> innovator and <strong>Co-Founder of StreetR</strong>.
+                    </p>
+                    
+                    <div class="flex flex-col sm:flex-row items-center justify-center gap-6 pt-6">
+                        <a href="#projects" class="w-full sm:w-auto px-12 py-5 rounded-full bg-gradient-to-r from-primary to-secondary text-white font-bold text-xl shadow-xl shadow-pink-500/30 hover:shadow-2xl hover:scale-105 transition duration-300 text-center">
+                            View Work
+                        </a>
+                        <a href="#contact" class="w-full sm:w-auto px-12 py-5 rounded-full bg-white text-gray-900 border-2 border-gray-100 font-bold text-xl hover:border-primary hover:text-primary hover:shadow-lg transition duration-300 text-center">
+                            Hire Me
+                        </a>
+                    </div>
+
+                    <div class="flex items-center justify-center space-x-12 pt-8 text-gray-400">
+                        <a href="mailto:padarthisuma7@gmail.com" class="hover:text-primary transition transform hover:scale-125"><i class="fas fa-envelope fa-2x"></i></a>
+                        <a href="#" class="hover:text-primary transition transform hover:scale-125"><i class="fab fa-linkedin fa-2x"></i></a>
+                        <a href="#" class="hover:text-primary transition transform hover:scale-125"><i class="fab fa-github fa-2x"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="about" class="py-32 bg-white relative">
+        <div class="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+            <div class="text-center mb-24 reveal">
+                <h2 class="text-primary font-bold tracking-[0.2em] uppercase text-sm mb-4">My Journey</h2>
+                <h3 class="text-4xl sm:text-5xl lg:text-6xl font-black text-gray-900">Education & Coursework</h3>
+                <div class="w-32 h-2 bg-gradient-to-r from-primary to-secondary mx-auto mt-8 rounded-full"></div>
+            </div>
+
+            <div class="max-w-5xl mx-auto reveal">
+                <div class="bg-white rounded-[2.5rem] p-12 border border-gray-100 shadow-[0_20px_50px_rgba(0,0,0,0.05)] relative overflow-hidden hover:shadow-[0_20px_60px_rgba(236,72,153,0.15)] transition duration-500 group">
+                    <div class="absolute top-0 left-0 w-4 h-full bg-gradient-to-b from-primary to-secondary"></div>
+                    <div class="flex flex-col md:flex-row md:items-start gap-10">
+                        <div class="bg-pink-50 p-8 rounded-3xl text-primary text-center min-w-[140px] transform group-hover:scale-105 transition">
+                            <i class="fas fa-graduation-cap text-5xl mb-4 block"></i>
+                            <span class="font-bold text-lg">2023-2027</span>
+                        </div>
+                        <div class="flex-1 space-y-6">
+                            <div>
+                                <h4 class="text-3xl sm:text-4xl font-black text-gray-900 group-hover:text-primary transition duration-300">B.Tech in Electronics & Communication</h4>
+                                <p class="text-xl sm:text-2xl text-secondary font-bold mt-2">PBR Visvodaya Institute of Technology and Science</p>
+                            </div>
+                            <p class="text-gray-600 text-xl leading-relaxed">
+                                Currently maintaining a strong academic record while leading technical student communities. Admitted via AP EAMCET.
+                            </p>
+                            
+                            <div class="bg-gray-50 p-6 rounded-2xl border border-gray-100">
+                                <h5 class="font-bold text-gray-900 text-lg mb-4 flex items-center">
+                                    <i class="fas fa-book-reader text-primary mr-3"></i> Core Competencies
+                                </h5>
+                                <div class="flex flex-wrap gap-3">
+                                    <span class="px-5 py-2 bg-white text-gray-800 border border-gray-200 rounded-full text-base font-semibold shadow-sm">Embedded Systems</span>
+                                    <span class="px-5 py-2 bg-white text-gray-800 border border-gray-200 rounded-full text-base font-semibold shadow-sm">VLSI Design</span>
+                                    <span class="px-5 py-2 bg-white text-gray-800 border border-gray-200 rounded-full text-base font-semibold shadow-sm">Digital Signal Processing</span>
+                                    <span class="px-5 py-2 bg-white text-gray-800 border border-gray-200 rounded-full text-base font-semibold shadow-sm">IoT Wireless Comm</span>
+                                    <span class="px-5 py-2 bg-white text-gray-800 border border-gray-200 rounded-full text-base font-semibold shadow-sm">Analog Circuits</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-32 bg-light">
+        <div class="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+            <div class="text-center mb-24 reveal">
+                <h2 class="text-secondary font-bold tracking-[0.2em] uppercase text-sm mb-4">Portfolio</h2>
+                <h3 class="text-4xl sm:text-5xl lg:text-6xl font-black text-gray-900">Featured Projects</h3>
+                <p class="mt-8 text-gray-600 text-xl max-w-3xl mx-auto">Innovative solutions engineering from hardware prototyping to AI integration.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+                
+                <!-- Project Card 1: Women's Safety -->
+                <div class="bg-white rounded-[2rem] overflow-hidden shadow-lg border border-gray-100 hover:shadow-2xl hover:-translate-y-4 transition-all duration-500 group reveal flex flex-col h-full">
+                    <div class="h-4 bg-gradient-to-r from-primary to-secondary"></div>
+                    <div class="p-10 flex-1 flex flex-col">
+                        <div class="flex justify-between items-start mb-8">
+                            <div class="w-16 h-16 bg-pink-50 rounded-2xl flex items-center justify-center text-primary transform group-hover:rotate-12 transition duration-500">
+                                <i class="fas fa-shield-heart text-3xl"></i>
+                            </div>
+                            <span class="px-4 py-2 bg-yellow-100 text-yellow-800 text-xs font-black rounded-full uppercase tracking-wider shadow-sm">Award Winner</span>
+                        </div>
+                        <h4 class="text-2xl font-black text-gray-900 mb-4 group-hover:text-primary transition">Women's Safety Device</h4>
+                        <p class="text-gray-600 text-lg mb-8 leading-relaxed flex-1">
+                            A dual-module (Watch + Shoe) embedded system using ESP32, GPS, and GSM. Features MPU6050 for gesture detection and ESP-NOW for secure, <strong>50% faster emergency response</strong>.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-8">
+                            <span class="tech-tag text-sm px-3 py-1 bg-gray-100 text-gray-700 font-semibold rounded-lg">ESP32</span>
+                            <span class="tech-tag text-sm px-3 py-1 bg-gray-100 text-gray-700 font-semibold rounded-lg">GSM/GPS</span>
+                            <span class="tech-tag text-sm px-3 py-1 bg-gray-100 text-gray-700 font-semibold rounded-lg">IoT</span>
+                        </div>
+                        <a href="#contact" class="inline-flex items-center text-secondary font-bold text-lg hover:text-primary transition group/link">
+                            Request Demo <i class="fas fa-arrow-right ml-2 transform group-hover/link:translate-x-1 transition"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Project Card 2: ITMS -->
+                <div class="bg-white rounded-[2rem] overflow-hidden shadow-lg border border-gray-100 hover:shadow-2xl hover:-translate-y-4 transition-all duration-500 group reveal flex flex-col h-full">
+                    <div class="h-4 bg-gradient-to-r from-secondary to-blue-500"></div>
+                    <div class="p-10 flex-1 flex flex-col">
+                        <div class="flex justify-between items-start mb-8">
+                            <div class="w-16 h-16 bg-purple-50 rounded-2xl flex items-center justify-center text-secondary transform group-hover:rotate-12 transition duration-500">
+                                <i class="fas fa-subway text-3xl"></i>
+                            </div>
+                            <span class="px-4 py-2 bg-blue-100 text-blue-800 text-xs font-black rounded-full uppercase tracking-wider shadow-sm">Engineering</span>
+                        </div>
+                        <h4 class="text-2xl font-black text-gray-900 mb-4 group-hover:text-secondary transition">Track Monitoring (ITMS)</h4>
+                        <p class="text-gray-600 text-lg mb-8 leading-relaxed flex-1">
+                            Developed an ESP32-based swarm network for contactless track monitoring using ultrasonic sensors. Achieved <strong>95% defect detection accuracy</strong> with real-time data aggregation.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-8">
+                            <span class="tech-tag text-sm px-3 py-1 bg-gray-100 text-gray-700 font-semibold rounded-lg">Swarm IoT</span>
+                            <span class="tech-tag text-sm px-3 py-1 bg-gray-100 text-gray-700 font-semibold rounded-lg">Python</span>
+                            <span class="tech-tag text-sm px-3 py-1 bg-gray-100 text-gray-700 font-semibold rounded-lg">HC-SR04</span>
+                        </div>
+                        <a href="#contact" class="inline-flex items-center text-secondary font-bold text-lg hover:text-primary transition group/link">
+                            View Details <i class="fas fa-arrow-right ml-2 transform group-hover/link:translate-x-1 transition"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Project Card 3: RAG Bot -->
+                <div class="bg-white rounded-[2rem] overflow-hidden shadow-lg border border-gray-100 hover:shadow-2xl hover:-translate-y-4 transition-all duration-500 group reveal flex flex-col h-full">
+                    <div class="h-4 bg-gradient-to-r from-blue-500 to-primary"></div>
+                    <div class="p-10 flex-1 flex flex-col">
+                        <div class="flex justify-between items-start mb-8">
+                            <div class="w-16 h-16 bg-blue-50 rounded-2xl flex items-center justify-center text-blue-500 transform group-hover:rotate-12 transition duration-500">
+                                <i class="fas fa-robot text-3xl"></i>
+                            </div>
+                            <span class="px-4 py-2 bg-green-100 text-green-800 text-xs font-black rounded-full uppercase tracking-wider shadow-sm">AI/ML</span>
+                        </div>
+                        <h4 class="text-2xl font-black text-gray-900 mb-4 group-hover:text-blue-500 transition">RAG Krishna Bot</h4>
+                        <p class="text-gray-600 text-lg mb-8 leading-relaxed flex-1">
+                            An Eye Blink controlled system integrated with a Retrieval-Augmented Generation (RAG) AI chatbot using Python/NLP for specialized input assistance and secure data handling.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-8">
+                            <span class="tech-tag text-sm px-3 py-1 bg-gray-100 text-gray-700 font-semibold rounded-lg">NLP</span>
+                            <span class="tech-tag text-sm px-3 py-1 bg-gray-100 text-gray-700 font-semibold rounded-lg">Computer Vision</span>
+                            <span class="tech-tag text-sm px-3 py-1 bg-gray-100 text-gray-700 font-semibold rounded-lg">Python</span>
+                        </div>
+                        <a href="#contact" class="inline-flex items-center text-secondary font-bold text-lg hover:text-primary transition group/link">
+                            See Logic <i class="fas fa-arrow-right ml-2 transform group-hover/link:translate-x-1 transition"></i>
+                        </a>
+                    </div>
+                </div>
+
+                 <!-- Project Card 4: Object Detector -->
+                 <div class="bg-white rounded-[2rem] overflow-hidden shadow-lg border border-gray-100 hover:shadow-2xl hover:-translate-y-4 transition-all duration-500 group reveal flex flex-col h-full">
+                    <div class="h-4 bg-gradient-to-r from-indigo-500 to-purple-500"></div>
+                    <div class="p-10 flex-1 flex flex-col">
+                        <div class="flex justify-between items-start mb-8">
+                            <div class="w-16 h-16 bg-indigo-50 rounded-2xl flex items-center justify-center text-indigo-500 transform group-hover:rotate-12 transition duration-500">
+                                <i class="fas fa-video text-3xl"></i>
+                            </div>
+                            <span class="px-4 py-2 bg-gray-100 text-gray-800 text-xs font-black rounded-full uppercase tracking-wider shadow-sm">Vision</span>
+                        </div>
+                        <h4 class="text-2xl font-black text-gray-900 mb-4 group-hover:text-indigo-500 transition">Object Detector</h4>
+                        <p class="text-gray-600 text-lg mb-8 leading-relaxed flex-1">
+                            Real-time object identification system optimized for efficiency. Achieved <strong>25 Frames Per Second (FPS)</strong> with <strong>92% detection accuracy</strong> using custom logic.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-8">
+                            <span class="tech-tag text-sm px-3 py-1 bg-gray-100 text-gray-700 font-semibold rounded-lg">OpenCV</span>
+                            <span class="tech-tag text-sm px-3 py-1 bg-gray-100 text-gray-700 font-semibold rounded-lg">Optimization</span>
+                        </div>
+                        <a href="#contact" class="inline-flex items-center text-secondary font-bold text-lg hover:text-primary transition group/link">
+                            View Stats <i class="fas fa-arrow-right ml-2 transform group-hover/link:translate-x-1 transition"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Project Card 5: Invisibility Cloak -->
+                <div class="bg-white rounded-[2rem] overflow-hidden shadow-lg border border-gray-100 hover:shadow-2xl hover:-translate-y-4 transition-all duration-500 group reveal flex flex-col h-full">
+                    <div class="h-4 bg-gradient-to-r from-gray-800 to-gray-600"></div>
+                    <div class="p-10 flex-1 flex flex-col">
+                        <div class="flex justify-between items-start mb-8">
+                            <div class="w-16 h-16 bg-gray-100 rounded-2xl flex items-center justify-center text-gray-800 transform group-hover:rotate-12 transition duration-500">
+                                <i class="fas fa-hat-wizard text-3xl"></i>
+                            </div>
+                            <span class="px-4 py-2 bg-purple-100 text-purple-800 text-xs font-black rounded-full uppercase tracking-wider shadow-sm">Fun Tech</span>
+                        </div>
+                        <h4 class="text-2xl font-black text-gray-900 mb-4 group-hover:text-secondary transition">Invisibility Cloak</h4>
+                        <p class="text-gray-600 text-lg mb-8 leading-relaxed flex-1">
+                            A Harry Potter inspired real-time computer vision system. Focuses on low-latency video processing and background masking on embedded hardware.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-8">
+                            <span class="tech-tag text-sm px-3 py-1 bg-gray-100 text-gray-700 font-semibold rounded-lg">Image Processing</span>
+                            <span class="tech-tag text-sm px-3 py-1 bg-gray-100 text-gray-700 font-semibold rounded-lg">Real-time</span>
+                        </div>
+                        <a href="#contact" class="inline-flex items-center text-secondary font-bold text-lg hover:text-primary transition group/link">
+                            Watch Demo <i class="fas fa-arrow-right ml-2 transform group-hover/link:translate-x-1 transition"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Project Card 6: StreetR -->
+                <div class="bg-white rounded-[2rem] overflow-hidden shadow-lg border border-gray-100 hover:shadow-2xl hover:-translate-y-4 transition-all duration-500 group reveal flex flex-col h-full">
+                    <div class="h-4 bg-gradient-to-r from-primary to-orange-500"></div>
+                    <div class="p-10 flex-1 flex flex-col">
+                        <div class="flex justify-between items-start mb-8">
+                            <div class="w-16 h-16 bg-orange-50 rounded-2xl flex items-center justify-center text-orange-500 transform group-hover:rotate-12 transition duration-500">
+                                <i class="fas fa-users-cog text-3xl"></i>
+                            </div>
+                            <span class="px-4 py-2 bg-orange-100 text-orange-800 text-xs font-black rounded-full uppercase tracking-wider shadow-sm">Leadership</span>
+                        </div>
+                        <h4 class="text-2xl font-black text-gray-900 mb-4 group-hover:text-orange-500 transition">StreetR Startup</h4>
+                        <p class="text-gray-600 text-lg mb-8 leading-relaxed flex-1">
+                            Co-Founded an open-source IoT community. Grew to 50+ members, led 5+ hackathons, and taught embedded systems to <strong>100+ students</strong>.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-8">
+                            <span class="tech-tag text-sm px-3 py-1 bg-gray-100 text-gray-700 font-semibold rounded-lg">Community</span>
+                            <span class="tech-tag text-sm px-3 py-1 bg-gray-100 text-gray-700 font-semibold rounded-lg">Mentorship</span>
+                        </div>
+                        <a href="#contact" class="inline-flex items-center text-secondary font-bold text-lg hover:text-primary transition group/link">
+                            Join Us <i class="fas fa-arrow-right ml-2 transform group-hover/link:translate-x-1 transition"></i>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-32 bg-white">
+        <div class="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+            <div class="text-center mb-24 reveal">
+                <h2 class="text-primary font-bold tracking-[0.2em] uppercase text-sm mb-4">My Arsenal</h2>
+                <h3 class="text-4xl sm:text-5xl lg:text-6xl font-black text-gray-900">Technical Skills</h3>
+                <div class="w-32 h-2 bg-gradient-to-r from-primary to-secondary mx-auto mt-8 rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+                
+                <!-- Skill Category 1 -->
+                <div class="p-10 rounded-[2rem] bg-gray-50 hover:bg-white border border-transparent hover:border-pink-200 shadow-sm hover:shadow-2xl transition duration-500 group reveal">
+                    <div class="w-16 h-16 bg-pink-100 rounded-2xl flex items-center justify-center text-primary mb-8 group-hover:scale-110 transition duration-300">
+                        <i class="fas fa-microchip text-3xl"></i>
+                    </div>
+                    <h4 class="text-2xl font-black text-gray-900 mb-6">Hardware & IoT</h4>
+                    <ul class="space-y-4 text-gray-600 text-lg font-medium">
+                        <li class="flex items-center"><i class="fas fa-check-circle text-green-500 mr-3"></i> ESP32 / Arduino / NodeMCU</li>
+                        <li class="flex items-center"><i class="fas fa-check-circle text-green-500 mr-3"></i> VLSI & Circuit Design</li>
+                        <li class="flex items-center"><i class="fas fa-check-circle text-green-500 mr-3"></i> Sensors (MPU6050, GPS)</li>
+                        <li class="flex items-center"><i class="fas fa-check-circle text-green-500 mr-3"></i> PCB Prototyping</li>
+                    </ul>
+                </div>
+
+                 <!-- Skill Category 2 -->
+                 <div class="p-10 rounded-[2rem] bg-gray-50 hover:bg-white border border-transparent hover:border-purple-200 shadow-sm hover:shadow-2xl transition duration-500 group reveal">
+                    <div class="w-16 h-16 bg-purple-100 rounded-2xl flex items-center justify-center text-secondary mb-8 group-hover:scale-110 transition duration-300">
+                        <i class="fas fa-laptop-code text-3xl"></i>
+                    </div>
+                    <h4 class="text-2xl font-black text-gray-900 mb-6">Software & AI</h4>
+                    <ul class="space-y-4 text-gray-600 text-lg font-medium">
+                        <li class="flex items-center"><i class="fas fa-check-circle text-green-500 mr-3"></i> Python & Embedded C</li>
+                        <li class="flex items-center"><i class="fas fa-check-circle text-green-500 mr-3"></i> OpenCV (Computer Vision)</li>
+                        <li class="flex items-center"><i class="fas fa-check-circle text-green-500 mr-3"></i> NLP & Basic ML</li>
+                        <li class="flex items-center"><i class="fas fa-check-circle text-green-500 mr-3"></i> HTML/CSS/Tailwind</li>
+                    </ul>
+                </div>
+
+                 <!-- Skill Category 3 -->
+                 <div class="p-10 rounded-[2rem] bg-gray-50 hover:bg-white border border-transparent hover:border-blue-200 shadow-sm hover:shadow-2xl transition duration-500 group reveal">
+                    <div class="w-16 h-16 bg-blue-100 rounded-2xl flex items-center justify-center text-blue-500 mb-8 group-hover:scale-110 transition duration-300">
+                        <i class="fas fa-toolbox text-3xl"></i>
+                    </div>
+                    <h4 class="text-2xl font-black text-gray-900 mb-6">Tools & Others</h4>
+                    <ul class="space-y-4 text-gray-600 text-lg font-medium">
+                        <li class="flex items-center"><i class="fas fa-check-circle text-green-500 mr-3"></i> Git & GitHub</li>
+                        <li class="flex items-center"><i class="fas fa-check-circle text-green-500 mr-3"></i> Multisim / Simulation</li>
+                        <li class="flex items-center"><i class="fas fa-check-circle text-green-500 mr-3"></i> ESP-NOW / Wi-Fi Protocols</li>
+                        <li class="flex items-center"><i class="fas fa-check-circle text-green-500 mr-3"></i> Leadership & Speaking</li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-32 bg-gradient-to-br from-primary via-purple-500 to-secondary text-white relative overflow-hidden">
+        <!-- Decoration -->
+        <div class="absolute top-0 left-0 w-full h-full overflow-hidden opacity-10">
+             <i class="fas fa-circle absolute -top-10 -left-10 text-[12rem] animate-pulse"></i>
+             <i class="fas fa-square absolute bottom-20 right-10 text-[10rem] transform rotate-45 animate-bounce"></i>
+        </div>
+
+        <div class="max-w-4xl mx-auto px-6 sm:px-8 lg:px-12 relative z-10">
+            <div class="text-center mb-16">
+                <h2 class="text-5xl sm:text-6xl font-black mb-6 tracking-tight">Let's Build Something Amazing.</h2>
+                <p class="text-pink-100 text-2xl font-light max-w-2xl mx-auto">Have an idea for an IoT project or need an embedded systems engineer?</p>
+            </div>
+
+            <div class="bg-white/10 backdrop-blur-xl rounded-[2.5rem] p-10 md:p-14 shadow-2xl border border-white/20">
+                <form onsubmit="handleContact(event)" class="space-y-8">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <div>
+                            <label class="block text-lg font-bold text-pink-100 mb-3 ml-1">Your Name</label>
+                            <input type="text" id="name" required class="w-full px-6 py-5 rounded-2xl bg-white/20 border border-pink-200/30 text-white placeholder-pink-200 focus:outline-none focus:ring-4 focus:ring-white/30 focus:border-white transition text-lg font-medium">
+                        </div>
+                        <div>
+                            <label class="block text-lg font-bold text-pink-100 mb-3 ml-1">Your Email</label>
+                            <input type="email" id="email" required class="w-full px-6 py-5 rounded-2xl bg-white/20 border border-pink-200/30 text-white placeholder-pink-200 focus:outline-none focus:ring-4 focus:ring-white/30 focus:border-white transition text-lg font-medium">
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block text-lg font-bold text-pink-100 mb-3 ml-1">Message</label>
+                        <textarea id="message" rows="5" required class="w-full px-6 py-5 rounded-2xl bg-white/20 border border-pink-200/30 text-white placeholder-pink-200 focus:outline-none focus:ring-4 focus:ring-white/30 focus:border-white transition text-lg font-medium"></textarea>
+                    </div>
+                    <button type="submit" class="w-full bg-white text-secondary font-black text-2xl py-6 rounded-2xl shadow-xl hover:bg-gray-50 hover:scale-[1.01] transition duration-300 transform active:scale-95">
+                        Send Message
+                    </button>
+                </form>
+                <div id="form-feedback" class="hidden mt-8 text-center p-4 rounded-2xl bg-green-500 text-white font-bold text-xl shadow-lg animate-bounce">
+                    Message sent successfully!
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-gray-400 py-16 border-t border-gray-800">
+        <div class="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 flex flex-col md:flex-row justify-between items-center gap-10">
+            <div class="text-center md:text-left">
+                <h3 class="text-4xl font-extrabold text-white mb-3 tracking-tight">Sumadhanu.</h3>
+                <p class="text-lg text-gray-500">Innovating with Embedded Systems & IoT.</p>
+            </div>
+            
+            <div class="flex space-x-8">
+                <a href="#" class="w-14 h-14 rounded-full bg-gray-800 flex items-center justify-center hover:bg-primary hover:text-white transition duration-300 transform hover:-translate-y-2">
+                    <i class="fab fa-linkedin-in text-2xl"></i>
+                </a>
+                <a href="#" class="w-14 h-14 rounded-full bg-gray-800 flex items-center justify-center hover:bg-primary hover:text-white transition duration-300 transform hover:-translate-y-2">
+                    <i class="fab fa-github text-2xl"></i>
+                </a>
+                <a href="mailto:padarthisuma7@gmail.com" class="w-14 h-14 rounded-full bg-gray-800 flex items-center justify-center hover:bg-primary hover:text-white transition duration-300 transform hover:-translate-y-2">
+                    <i class="fas fa-envelope text-2xl"></i>
+                </a>
+            </div>
+
+            <div class="text-lg text-gray-600">
+                &copy; 2025 Padarthi Sumadhanu.
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript Implementation -->
+    <script>
+        // 1. Mobile Menu Toggle
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+
+        // Close menu when clicking a link
+        menu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                menu.classList.add('hidden');
+            });
+        });
+
+        // 2. Navbar Glass Effect on Scroll
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 20) {
+                navbar.classList.add('glass', 'shadow-md');
+                navbar.classList.remove('bg-transparent', 'py-6');
+                navbar.classList.add('py-4');
+            } else {
+                navbar.classList.remove('glass', 'shadow-md', 'py-4');
+                navbar.classList.add('bg-transparent', 'py-6');
+            }
+        });
+
+        // 3. Typewriter Effect
+        const textElement = document.getElementById('typewriter');
+        const phrases = ["3rd-Year ECE Student.", "Embedded Systems Enthusiast.", "IoT Innovator.", "Co-Founder of StreetR."];
+        let phraseIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+        let typeSpeed = 100;
+
+        function type() {
+            const currentPhrase = phrases[phraseIndex];
+            
+            if (isDeleting) {
+                textElement.textContent = currentPhrase.substring(0, charIndex - 1);
+                charIndex--;
+                typeSpeed = 50;
+            } else {
+                textElement.textContent = currentPhrase.substring(0, charIndex + 1);
+                charIndex++;
+                typeSpeed = 100;
+            }
+
+            if (!isDeleting && charIndex === currentPhrase.length) {
+                isDeleting = true;
+                typeSpeed = 2000; // Pause at end
+            } else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                phraseIndex = (phraseIndex + 1) % phrases.length;
+                typeSpeed = 500; // Pause before new word
+            }
+
+            setTimeout(type, typeSpeed);
+        }
+
+        document.addEventListener('DOMContentLoaded', type);
+
+        // 4. Scroll Reveal Animation
+        function reveal() {
+            var reveals = document.querySelectorAll(".reveal");
+            for (var i = 0; i < reveals.length; i++) {
+                var windowHeight = window.innerHeight;
+                var elementTop = reveals[i].getBoundingClientRect().top;
+                var elementVisible = 150;
+                if (elementTop < windowHeight - elementVisible) {
+                    reveals[i].classList.add("active");
+                }
+            }
+        }
+        window.addEventListener("scroll", reveal);
+        // Trigger once on load
+        reveal();
+
+        // 5. Contact Form Handler (Simulation)
+        function handleContact(e) {
+            e.preventDefault();
+            const btn = e.target.querySelector('button');
+            const feedback = document.getElementById('form-feedback');
+            const originalText = btn.innerText;
+
+            btn.innerText = 'Sending...';
+            btn.disabled = true;
+
+            setTimeout(() => {
+                btn.innerText = originalText;
+                btn.disabled = false;
+                feedback.classList.remove('hidden');
+                e.target.reset();
+                
+                setTimeout(() => {
+                    feedback.classList.add('hidden');
+                }, 4000);
+            }, 1500);
+        }
+
+        // 6. Active Link Highlighter
+        const sections = document.querySelectorAll("section");
+        const navLinks = document.querySelectorAll(".nav-link");
+
+        window.onscroll = () => {
+            let current = "";
+            sections.forEach((section) => {
+                const sectionTop = section.offsetTop;
+                if (pageYOffset >= sectionTop - 200) {
+                    current = section.getAttribute("id");
+                }
+            });
+
+            navLinks.forEach((li) => {
+                li.classList.remove("text-primary");
+                if (li.getAttribute("href").includes(current)) {
+                    li.classList.add("text-primary");
+                }
+            });
+        };
+    </script>
+</body>
+</html>
